@@ -74,6 +74,7 @@ public class PremierLeagueManager implements LeagueManager {
 
             writeInput.appendString(team2); //Store second team entered
 
+            /* Check if team name entered is a valid team in the club ArrayList */
             for(FootballClub checkTeam1: addStats)
             {
                 if(checkTeam1.clubName.equals(team1))
@@ -155,7 +156,8 @@ public class PremierLeagueManager implements LeagueManager {
         {
             if(x.getClubName().equals(teamInfo))
             {
-                System.out.println(x.toString());
+                System.out.println("Club " + x.getClubName() + " Goals " +
+                x.getGoals() + " Points " + x.getPoints() + " Wins " + x.getWins());
             }
         }
     }
