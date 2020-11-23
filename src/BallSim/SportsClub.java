@@ -4,7 +4,10 @@ abstract public class SportsClub {
     String clubName;
     String clubLocation;
 
-
+    SportsClub(String nameClub)
+    {
+        this.clubName = nameClub;
+    }
     public void setClubName(String name)
     {
         clubName = name;
