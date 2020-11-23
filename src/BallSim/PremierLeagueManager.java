@@ -8,6 +8,8 @@ import java.util.Random;
 
 public class PremierLeagueManager implements LeagueManager {
 
+    fileWrite writeInput = new fileWrite();
+
     private RandomDate randDate = new RandomDate();
     protected Random randomGenerator = new Random();
     Scanner userInput = new Scanner(System.in);
@@ -25,6 +27,8 @@ public class PremierLeagueManager implements LeagueManager {
         System.out.println("Name of the club? ");
         String input = userInput.nextLine();
 
+        writeInput.appendString(input);
+
         clubs.add(new FootballClub(input, 0, 0, 0));
         System.out.println(input + " has been added to the League.");
     }
@@ -35,6 +39,8 @@ public class PremierLeagueManager implements LeagueManager {
 
         System.out.println("Type the name of the club you wish to delete: ");
         String delete = userInput.nextLine();
+
+        writeInput.appendString(delete);
 
         for(FootballClub x: removeClub)
         {
@@ -56,11 +62,17 @@ public class PremierLeagueManager implements LeagueManager {
             System.out.println("Match date? FORMAT: DD/MM/YYYY: ");
             String date = userInput.nextLine();
 
+            writeInput.appendString(date); //Store date
+
             System.out.println("Team name: ");
             String team1 = userInput.nextLine();
 
+            writeInput.appendString(team1); //Store first team entered
+
             System.out.println("Second team name: ");
             String team2 = userInput.nextLine();
+
+            writeInput.appendString(team2); //Store second team entered
 
             for(FootballClub checkTeam1: addStats)
             {
@@ -73,10 +85,11 @@ public class PremierLeagueManager implements LeagueManager {
                 }
             }
 
-
             try {
                 System.out.println("How many goals did " + team1 + " team score? ");
                 team1Goals = userInput.nextInt();
+                writeInput.appendInt(team1Goals); //Store first team goals
+
             } catch (InputMismatchException e) {
                 System.out.println("This is not the correct value, try again.");
                 return;
@@ -85,6 +98,8 @@ public class PremierLeagueManager implements LeagueManager {
             try {
                 System.out.println("How many goals did " + team2 + " team score? ");
                 team2Goals = userInput.nextInt();
+                writeInput.appendInt(team2Goals); //Store second team goals
+
             } catch (InputMismatchException e) {
                 System.out.println("This is not the correct value, try again.");
                 return;
@@ -134,6 +149,8 @@ public class PremierLeagueManager implements LeagueManager {
     {
         System.out.println("Team to view stats?: ");
         String teamInfo = userInput.nextLine();
+        writeInput.appendString(teamInfo); //Store the name of the team user wanted to view statistics of
+
         for(FootballClub x: showStats)
         {
             if(x.getClubName().equals(teamInfo))

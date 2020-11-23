@@ -13,7 +13,7 @@ public class PremierLeague {
         String menuSelector;
 
         Scanner selectfromMenu = new Scanner(System.in);
-        fileWrite writer = new fileWrite();
+        //fileWrite writer = new fileWrite();
         PremierLeagueManager PLM = new PremierLeagueManager();
         PLM.menu();
 
@@ -22,27 +22,36 @@ public class PremierLeague {
             menuSelector = PLM.userInput.nextLine().toUpperCase();
             switch(menuSelector){
                 case "A":
+                    PLM.writeInput.appendString(menuSelector);
                     PLM.addClub();
                     break;
                 case "V":
+                    PLM.writeInput.appendString(menuSelector);
                     PLM.displayClubs(PLM.clubs);
                     break;
                 case "D":
+                    PLM.writeInput.appendString(menuSelector);
                     PLM.deleteClub(PLM.clubs);
                     break;
                 case "S":
+                    PLM.writeInput.appendString(menuSelector);
                     PLM.addMatchStatistic(PLM.clubs);
                     break;
                 case "F":
+                    PLM.writeInput.appendString(menuSelector);
                     PLM.displayStatistics(PLM.clubs);
                     break;
                 case "G":
+                    PLM.writeInput.appendString(menuSelector);
                     GUInterface GUI = new GUInterface(PLM);
                     break;
                 case "E":
-                    writer.storeClubs(PLM.clubs);
+                    PLM.writeInput.appendString(menuSelector);
+                    PLM.writeInput.storeClubs(PLM.clubs);
                     break;
                 case "Q":
+                    PLM.writeInput.appendString(menuSelector);
+                    PLM.writeInput.closeFile();
                     System.exit(0);
                     break;
 
