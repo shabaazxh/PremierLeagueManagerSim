@@ -9,12 +9,13 @@ public class PremierLeague {
 
     public static void main(String[] args) {
         /* Display user menu, select from menu */
-
         String menuSelector;
 
         Scanner selectfromMenu = new Scanner(System.in);
-        //fileWrite writer = new fileWrite();
+
         PremierLeagueManager PLM = new PremierLeagueManager();
+        readFile resumeProgram = new readFile("save.txt",PLM.clubs);
+
         PLM.menu();
 
         /* dowhile to allow multiple functionality through menu */
@@ -39,15 +40,15 @@ public class PremierLeague {
                     break;
                 case "F":
                     PLM.writeInput.appendString(menuSelector);
-                    PLM.displayStatistics(PLM.clubs);
-                    break;
-                case "G":
-                    PLM.writeInput.appendString(menuSelector);
-                    GUInterface GUI = new GUInterface(PLM);
+                    PLM.viewStatistics(PLM.clubs);
                     break;
                 case "E":
                     PLM.writeInput.appendString(menuSelector);
                     PLM.writeInput.storeClubs(PLM.clubs);
+                    break;
+                case "G":
+                    PLM.writeInput.appendString(menuSelector);
+                    GUInterface GUI = new GUInterface(PLM);
                     break;
                 case "Q":
                     PLM.writeInput.appendString(menuSelector);

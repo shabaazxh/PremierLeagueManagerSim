@@ -142,11 +142,7 @@ public class PremierLeagueManager implements LeagueManager {
         }
     }
 
-
-
-
-
-    public void displayStatistics(ArrayList<FootballClub> showStats)
+    public void viewStatistics(ArrayList<FootballClub> showStats)
     {
         System.out.println("Team to view stats?: ");
         String teamInfo = userInput.nextLine();
@@ -181,22 +177,8 @@ public class PremierLeagueManager implements LeagueManager {
                         display.get(i).getWins());
             }
         }
-
-
     }
 
-    public void addMatch() {
-
-    }
-
-    public void saveInput() {
-        //PrintWriter outToFile = new PrintWrite();
-
-    }
-
-    public void readFileResume(String input) {
-
-    }
 
     public void displayTable(ArrayList<FootballClub> footballClubs)
     {
@@ -213,7 +195,6 @@ public class PremierLeagueManager implements LeagueManager {
             Object[] row = {name, goals, points, wins,date};
             model.addRow(row);
         }
-
 
         teamTable = new JTable(model);
         teamTable.repaint();
@@ -433,10 +414,11 @@ public class PremierLeagueManager implements LeagueManager {
     protected void menu() {
         System.out.println("Press 'A' to add a team");
         System.out.println("Press 'V' to display Premier League Table");
-        System.out.println("Press 'F' to view statistics of a team");
-        System.out.println("Press 'G' to open GUI");
         System.out.println("Press 'D' to delete a team");
         System.out.println("Press 'S' to add match statistics");
+        System.out.println("Press 'F' to find & view statistics of a team");
+        System.out.println("Press 'E' save all club data into file");
+        System.out.println("Press 'G' to open GUI");
         System.out.println("Press 'Q' to quit this program");
     }
 
